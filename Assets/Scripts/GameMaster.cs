@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -24,6 +25,14 @@ public class GameMaster : MonoBehaviour {
 	private GameObject inGameUI;
 	[SerializeField]
 	private GameObject restartUI;
+
+	[SerializeField]
+	Text BunniesCount;
+	[SerializeField]
+	Text Timer;
+
+	[SerializeField]
+	float gameTime=60f;
 
 	public static GameMaster g;
 	// Use this for initialization
@@ -59,9 +68,23 @@ public class GameMaster : MonoBehaviour {
 	}
 	public IEnumerator Countdown() {
 		yield return new WaitForSeconds (3);
+		GamePlayBegin ();
+	}
+	private void GamePlayBegin()
+	{
 		gameState = GameState.InGame;
 		inGameUI.SetActive (true);
+		StartCoroutine (InGameCountDown());
 	}
+	IEnumerator InGameCountDown(){
+		float timer = gameTime;
+		while (timer > 0f) {
+			timer -= Time.deltaTime;
+			Timer.text=((int)timer).ToString();
+			yield return null;
+		}
+	}
+
 	public void EndGame()
 	{
 		gameState = GameState.Restart;
@@ -90,5 +113,10 @@ public class GameMaster : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		StartCoroutine (RemoveEntitiesFromList ());
+		if (gameState == GameState.InGame) {
+			BunniesCount.text=Bunnies.Count.ToString();
+
+		}
+
 	}
 }
