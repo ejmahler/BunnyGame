@@ -24,14 +24,14 @@ public class GameMaster : MonoBehaviour {
 	private void FindAllBunnies()
 	{
 		Bunnies=GameObject.FindGameObjectsWithTag("Bunny").ToList();
-
+		print (Bunnies.Count);
 	}
 
 
 	public void RemoveEntity(GameObject b)
 	{
 		BunniesToRemove.Add (b);
-		GameObject.Destroy (b);
+
 	}
 	IEnumerator RemoveEntitiesFromList()
 	{
@@ -41,6 +41,7 @@ public class GameMaster : MonoBehaviour {
 			if(b!=null)
 			{
 				Bunnies.Remove (b);
+				GameObject.Destroy (b);
 			}
 		}
 	}

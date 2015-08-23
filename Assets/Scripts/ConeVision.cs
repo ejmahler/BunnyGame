@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class ConeVision : MonoBehaviour {
+	[SerializeField]
 	private float radius=1f;
 
 	// Use this for initialization
@@ -12,9 +13,11 @@ public class ConeVision : MonoBehaviour {
 	{
 		foreach (GameObject b in GameMaster.g.Bunnies)
 		{
+			//print("distance"+Vector2.Distance(b.transform.position,transform.position));
 			if(Vector2.Distance(b.transform.position,transform.position)<radius)
 			{
 				GameMaster.g.RemoveEntity(b);
+				print("Remove");
 			}
 		}
 		
@@ -22,6 +25,6 @@ public class ConeVision : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+		CheckForObjectsWithinRange ();
 	}
 }
