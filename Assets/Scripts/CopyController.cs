@@ -5,12 +5,16 @@ public class CopyController : MonoBehaviour {
 
 	private Rigidbody2D target;
 	private Vector3 destination;
+	private Light downLight;
 
 	[SerializeField]
 	private float searchSpeed = 2;
 
 	[SerializeField]
 	private float chaseSpeed = 3;
+
+	[SerializeField]
+	private GameObject downLightPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +31,7 @@ public class CopyController : MonoBehaviour {
 			GetComponent<Rigidbody2D>().MovePosition(transform.position + directionToDest * Time.fixedDeltaTime * chaseSpeed);
 
 			//check for LOS to target
-			if(!hasLOStoObject(target.GetComponent<Collider2D>())) {
+			if(!hasLOStoObject(target.GetComponent<Collider2D>()) || Vector3.Distance (this.transform.position, target.transform.position) > 5) {
 				target = null;
 			}
 
@@ -42,6 +46,16 @@ public class CopyController : MonoBehaviour {
 
 		//look at destination
 		transform.LookAt (new Vector3(destination.x, destination.y, transform.position.z), Vector3.forward);
+
+		if (target != null && target.gameObject.tag == "Player" && downLight == null) {
+			var downLightObj = (GameObject)Instantiate (downLightPrefab);
+			downLightObj.transform.SetParent (transform, false);
+			downLight = downLightObj.GetComponent<Light>();
+
+		} else if ((target == null || target.gameObject.tag != "Player") && downLight != null) {
+			Destroy (downLight.gameObject);
+			downLight = null;
+		}
 	}
 
 	private void ChooseRandomDestination() {
