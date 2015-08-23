@@ -6,7 +6,8 @@ using System.Linq;
 public enum GameState
 {
 	MainMenu,
-	InGame
+	InGame,
+	Restart
 }
 
 public class GameMaster : MonoBehaviour {
@@ -20,6 +21,8 @@ public class GameMaster : MonoBehaviour {
 	private GameObject gameMenuUI;
 	[SerializeField]
 	private GameObject inGameUI;
+	[SerializeField]
+	private GameObject restartUI;
 
 	public static GameMaster g;
 	// Use this for initialization
@@ -33,6 +36,9 @@ public class GameMaster : MonoBehaviour {
 			Destroy(this);
 		}
 		gameState = GameState.MainMenu;
+		gameMenuUI.SetActive (true);
+		inGameUI.SetActive (false);
+		restartUI.SetActive (false);
 
 	}
 	private void FindAllBunnies()
@@ -46,7 +52,15 @@ public class GameMaster : MonoBehaviour {
 		FindAllBunnies ();
 		gameMenuUI.SetActive (false);
 		inGameUI.SetActive (true);
-		print ("game begin");
+		restartUI.SetActive (false);
+	}
+	public void EndGame()
+	{
+		gameState = GameState.Restart;
+		gameMenuUI.SetActive (false);
+		inGameUI.SetActive (false);
+		restartUI.SetActive (true);
+
 	}
 	public void RemoveEntity(GameObject b)
 	{
