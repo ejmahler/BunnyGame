@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bunny
+  - Enemy
   layers:
   - Default
   - TransparentFX

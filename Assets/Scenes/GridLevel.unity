@@ -339,10 +339,6 @@ Prefab:
       propertyPath: m_Name
       value: Bunny (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 11400444, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
-      propertyPath: range
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
   m_IsPrefabParent: 0
@@ -918,6 +914,10 @@ Prefab:
     - target: {fileID: 11494682, guid: 06e5c9df69bb34f899d0e9a4b03eab12, type: 2}
       propertyPath: angle
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494682, guid: 06e5c9df69bb34f899d0e9a4b03eab12, type: 2}
+      propertyPath: radius
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06e5c9df69bb34f899d0e9a4b03eab12, type: 2}
@@ -1677,66 +1677,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813169975}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1843383643
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1843383644}
-  - 108: {fileID: 1843383645}
-  m_Layer: 0
-  m_Name: ForwardLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1843383644
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1843383643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -1, z: -.800000012}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1772566124}
-  m_RootOrder: 0
---- !u!108 &1843383645
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1843383643}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5.28999996
-  m_Range: 20
-  m_SpotAngle: 69
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 1
-    m_Resolution: 3
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &1967162790
 GameObject:
   m_ObjectHideFlags: 0
