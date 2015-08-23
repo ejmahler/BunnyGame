@@ -339,6 +339,10 @@ Prefab:
       propertyPath: m_Name
       value: Bunny (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 11400444, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
   m_IsPrefabParent: 0
