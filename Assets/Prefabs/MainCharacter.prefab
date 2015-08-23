@@ -18,7 +18,7 @@ GameObject:
   - 114: {fileID: 11494682}
   m_Layer: 0
   m_Name: MainCharacter
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5.28999996
-  m_Range: 20
+  m_Range: 40
   m_SpotAngle: 69
   m_CookieSize: 10
   m_Shadows:
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874df5499c78b4576abcaa031c06f31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 3
   angle: 90
   _coneSprite: {fileID: 0}
 --- !u!1001 &100100000
