@@ -43,8 +43,7 @@ public class CopyController : MonoBehaviour {
 				
 				GameMaster.g.RemoveEntity (target.gameObject);//kill
 				var downLightObj = (GameObject)Instantiate (downLightPrefab);
-				downLightObj.transform.SetParent (transform, false);
-				downLight = downLightObj.GetComponent<Light>();
+				GameObject.Destroy(downLightObj,2f);
 			}
 
 		} else if ((transform.position - destination).sqrMagnitude < 0.1f) {
