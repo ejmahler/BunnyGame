@@ -9,10 +9,15 @@ public class ConeVision : MonoBehaviour {
 
 	[SerializeField]
 	private Sprite _coneSprite;
-	
+
+	private Light forwardLight;
+
 	// Use this for initialization
 	void Start () {
-	
+		var light = transform.Find ("ForwardLight");
+		if (light != null) {
+			forwardLight = light.GetComponent<Light>();
+		}
 	}
 	void CheckForObjectsWithinRange()
 	{
@@ -22,22 +27,20 @@ public class ConeVision : MonoBehaviour {
 			if(Vector2.Distance(b.transform.position,transform.position)<radius  && Vector2.Angle((b.transform.position-transform.position),transform.forward)<angle/2)
 			{
 				GameMaster.g.RemoveEntity(b);
-				print("Remove");
 			}
 
 			
 		}
 		
 	}
-	void VisualizeTheCone()
-	{
-
-	}
 
 	// Update is called once per frame
 	void Update () {
 		CheckForObjectsWithinRange ();
-		VisualizeTheCone ();
+
+		if (forwardLight != null) {
+			forwardLight.spotAngle = angle;
+		}
 	}
 }
 
