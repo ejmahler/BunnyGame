@@ -6,6 +6,7 @@ using System.Linq;
 public enum GameState
 {
 	MainMenu,
+	Starting,
 	InGame,
 	Restart
 }
@@ -48,11 +49,18 @@ public class GameMaster : MonoBehaviour {
 
 	public void StartGame()
 	{
-		gameState = GameState.InGame;
+		gameState = GameState.Starting;
 		FindAllBunnies ();
 		gameMenuUI.SetActive (false);
-		inGameUI.SetActive (true);
+		inGameUI.SetActive (false);
 		restartUI.SetActive (false);
+
+		StartCoroutine (Countdown ());
+	}
+	public IEnumerator Countdown() {
+		yield return new WaitForSeconds (3);
+		gameState = GameState.InGame;
+		inGameUI.SetActive (true);
 	}
 	public void EndGame()
 	{

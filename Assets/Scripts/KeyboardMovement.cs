@@ -13,10 +13,12 @@ public class KeyboardMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector2 input = new Vector2 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
-		if (input.sqrMagnitude > 1.0f) {
-			input.Normalize();
+		if (GameMaster.g.gameState == GameState.InGame) {
+			Vector2 input = new Vector2 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+			if (input.sqrMagnitude > 1.0f) {
+				input.Normalize ();
+			}
+			target.AddForce (input * 5000);
 		}
-		target.AddForce (input * 5000);
 	}
 }
