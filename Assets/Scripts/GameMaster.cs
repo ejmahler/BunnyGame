@@ -3,10 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+public enum GameState
+{
+	MainMenu,
+	InGame
+}
+
 public class GameMaster : MonoBehaviour {
 	[HideInInspector]
 	public List <GameObject> Bunnies = new List<GameObject>();
 	List <GameObject> BunniesToRemove = new List<GameObject>();
+
+	public GameState gameState;
+
+	[SerializeField]
+	private GameObject gameMenuUI;
+	[SerializeField]
+	private GameObject inGameUI;
 
 	public static GameMaster g;
 	// Use this for initialization
@@ -19,15 +32,22 @@ public class GameMaster : MonoBehaviour {
 		{
 			Destroy(this);
 		}
-		FindAllBunnies ();
+		gameState = GameState.MainMenu;
+
 	}
 	private void FindAllBunnies()
 	{
 		Bunnies=GameObject.FindGameObjectsWithTag("Bunny").ToList();
-		print (Bunnies.Count);
 	}
 
-
+	public void StartGame()
+	{
+		gameState = GameState.InGame;
+		FindAllBunnies ();
+		gameMenuUI.SetActive (false);
+		inGameUI.SetActive (true);
+		print ("game begin");
+	}
 	public void RemoveEntity(GameObject b)
 	{
 		BunniesToRemove.Add (b);
