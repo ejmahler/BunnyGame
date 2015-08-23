@@ -28,10 +28,7 @@ public class ConeVision : MonoBehaviour {
 			{
 				GameMaster.g.RemoveEntity(b);
 			}
-
-			
 		}
-		
 	}
 
 	// Update is called once per frame

@@ -22,7 +22,10 @@ public class SpawnCopy : MonoBehaviour {
 
 		if (timeRemaining <= 0f) {
 			Instantiate(copyPrefab, this.transform.position, Quaternion.identity);
+			Transform light = transform.Find("Spotlight");
+			light.SetParent(null, true);
 			Destroy (gameObject);
+			Destroy (light.gameObject, 1.0f);
 		}
 	}
 }

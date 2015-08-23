@@ -14,7 +14,7 @@ public class SpawnCopyPlaceholder : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			Instantiate(placeholderPrefab, this.transform.position, Quaternion.identity);
+			Instantiate (placeholderPrefab, this.transform.position, Quaternion.identity);
 		}
 	}
 }
