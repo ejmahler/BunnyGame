@@ -23,7 +23,7 @@ public class CopyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		ChooseRandomDestination ();
 	}
 	
 	// Update is called once per frame
@@ -46,7 +46,7 @@ public class CopyController : MonoBehaviour {
 				GameObject.Destroy(downLightObj,2f);
 			}
 
-		} else if ((transform.position - destination).sqrMagnitude < 0.1f) {
+		} else if ((transform.position - destination).sqrMagnitude > 0.1f) {
 			//goto destination
 			Vector3 directionToDest = (destination - transform.position).normalized;
 			GetComponent<Rigidbody2D>().MovePosition(transform.position + directionToDest * Time.fixedDeltaTime * searchSpeed);
@@ -122,8 +122,6 @@ public class CopyController : MonoBehaviour {
 		Vector3 directionToOther = (other.transform.position - transform.position).normalized;
 
 		RaycastHit2D hit = Physics2D.Raycast(transform.position + directionToOther * (copyRadius + .1f), directionToOther, distanceToOther);
-		if (hit.collider != null && hit.collider != other) {
-		}
 		return hit.collider != null && hit.collider == other;
 	}
 }
