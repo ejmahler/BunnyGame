@@ -203,6 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   angle: 90
+  killRadius: 3
+  killAngle: 75
   _coneSprite: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

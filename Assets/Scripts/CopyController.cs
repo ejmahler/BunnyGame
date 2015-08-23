@@ -16,6 +16,11 @@ public class CopyController : MonoBehaviour {
 	[SerializeField]
 	private GameObject downLightPrefab;
 
+	[SerializeField]
+	private float killRadius=3f;
+	[SerializeField]
+	private float killAngle=75f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -33,6 +38,13 @@ public class CopyController : MonoBehaviour {
 			//check for LOS to target
 			if(!hasLOStoObject(target.GetComponent<Collider2D>()) || Vector3.Distance (this.transform.position, target.transform.position) > 5) {
 				target = null;
+			}
+			if (Vector2.Distance (target.transform.position, transform.position) < killRadius && Vector2.Angle ((target.transform.position - transform.position), transform.forward) < killAngle / 2) {
+				
+				GameMaster.g.RemoveEntity (target.gameObject);//kill
+				var downLightObj = (GameObject)Instantiate (downLightPrefab);
+				downLightObj.transform.SetParent (transform, false);
+				downLight = downLightObj.GetComponent<Light>();
 			}
 
 		} else if ((transform.position - destination).sqrMagnitude < 0.1f) {
