@@ -74,7 +74,7 @@ public class BunnyMovement : MonoBehaviour {
 	}
 	void OnTriggerStay2D(Collider2D other)
 	{
-		if (other != null && other.gameObject.tag == "Enemy") {
+		if (other != null && (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player")) {
 			Vector2 pos= new Vector2(other.transform.position.x,other.transform.position.y);
 			isEscaping = true;
 			float distance = Vector2.Distance (transform.position, pos);
