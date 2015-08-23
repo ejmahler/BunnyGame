@@ -7,6 +7,9 @@ public class ConeVision : MonoBehaviour {
 	[SerializeField]
 	private float angle=30f;
 
+	[SerializeField]
+	private Sprite _coneSprite;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -26,9 +29,18 @@ public class ConeVision : MonoBehaviour {
 		}
 		
 	}
+	void VisualizeTheCone()
+	{
+
+	}
 
 	// Update is called once per frame
 	void Update () {
 		CheckForObjectsWithinRange ();
+		VisualizeTheCone ();
 	}
 }
+
+
+
+
