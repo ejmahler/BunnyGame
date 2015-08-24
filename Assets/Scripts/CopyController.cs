@@ -39,9 +39,19 @@ public class CopyController : MonoBehaviour {
 			if(!hasLOStoObject(target.GetComponent<Collider2D>()) || Vector3.Distance (this.transform.position, target.transform.position) > 5) {
 				target = null;
 			}
-			if (Vector2.Distance (target.transform.position, transform.position) < killRadius && Vector2.Angle ((target.transform.position - transform.position), transform.forward) < killAngle / 2) {
-				
+			else if (Vector2.Distance (target.transform.position, transform.position) < killRadius && Vector2.Angle ((target.transform.position - transform.position), transform.forward) < killAngle / 2) {
+
+                if (target.gameObject.tag == "Bunny")
+                {
+                    AudioManager.instance.BunnyScream();
+                }
+                else
+                {
+                    AudioManager.instance.MonsterDieSound();
+                }
+
 				GameMaster.g.RemoveEntity (target.gameObject);//kill
+                
 				var downLightObj = (GameObject)Instantiate (downLightPrefab);
 				GameObject.Destroy(downLightObj,2f);
 			}

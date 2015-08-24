@@ -25,11 +25,12 @@ public class ConeVision : MonoBehaviour {
 	}
 	void CheckForObjectsWithinRange()
 	{
-		if (Input.GetMouseButtonDown (0)) {
+		if (GameMaster.g.gameState == GameState.InGame && Input.GetMouseButtonDown (0)) {
+            AudioManager.instance.AttackSound();
 			foreach (GameObject b in GameMaster.g.Bunnies) {
 				//print("distance"+Vector2.Distance(b.transform.position,transform.position));
 				if (Vector2.Distance (b.transform.position, transform.position) < killRadius && Vector2.Angle ((b.transform.position - transform.position), transform.forward) < killAngle / 2) {
-
+                    AudioManager.instance.BunnyScream();
 					GameMaster.g.RemoveEntity (b);
 				}
 			}

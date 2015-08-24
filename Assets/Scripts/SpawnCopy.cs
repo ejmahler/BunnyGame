@@ -26,6 +26,8 @@ public class SpawnCopy : MonoBehaviour {
 			light.SetParent(null, true);
 			Destroy (gameObject);
 			Destroy (light.gameObject, 1.0f);
+
+            AudioManager.instance.SpawnSound();
 		}
 	}
 }

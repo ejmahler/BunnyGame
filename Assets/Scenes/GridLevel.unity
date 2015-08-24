@@ -305,11 +305,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 483320, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.9007912
+      value: -16.7900009
       objectReference: {fileID: 0}
     - target: {fileID: 483320, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.57820368
+      value: -6.78000021
       objectReference: {fileID: 0}
     - target: {fileID: 483320, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
       propertyPath: m_LocalPosition.z
@@ -791,47 +791,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
---- !u!1 &414721747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 414721749}
-  - 114: {fileID: 414721748}
-  m_Layer: 0
-  m_Name: ShadowController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &414721748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414721747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596bed51cdd054350a1d3e7ac8144a01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shadowRenderer: {fileID: 181678156}
-  _bgColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!4 &414721749
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414721747}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
 --- !u!1 &424743701
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &788547818
 Prefab:
   m_ObjectHideFlags: 0
@@ -1293,7 +1252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 483320, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2de5ea4db066d4d9a97aeaf6cf4a2dde, type: 2}
@@ -1540,7 +1499,7 @@ Transform:
   - {fileID: 1578688734}
   - {fileID: 1813169976}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &1441751792
 GameObject:
   m_ObjectHideFlags: 0
