@@ -25,11 +25,15 @@ public class GameMaster : MonoBehaviour {
 	private GameObject inGameUI;
 	[SerializeField]
 	private GameObject restartUI;
+	[SerializeField]
+	private GameObject countDownUI;
 
 	[SerializeField]
 	Text BunniesCount;
 	[SerializeField]
 	Text Timer;
+	[SerializeField]
+	Text BeforeGameTimer;
 
 	[SerializeField]
 	float gameTime=60f;
@@ -49,6 +53,7 @@ public class GameMaster : MonoBehaviour {
 		gameMenuUI.SetActive (true);
 		inGameUI.SetActive (false);
 		restartUI.SetActive (false);
+		countDownUI.SetActive (false);
 
 	}
 	private void FindAllBunnies()
@@ -63,17 +68,24 @@ public class GameMaster : MonoBehaviour {
 		gameMenuUI.SetActive (false);
 		inGameUI.SetActive (false);
 		restartUI.SetActive (false);
+		countDownUI.SetActive (true);
 
-		StartCoroutine (Countdown ());
+		StartCoroutine (BeforeGameCountdown ());
 	}
-	public IEnumerator Countdown() {
-		yield return new WaitForSeconds (3);
+	public IEnumerator BeforeGameCountdown() {
+		float timer = 3f;
+		while (timer > 0f) {
+			timer -= Time.deltaTime;
+			BeforeGameTimer.text=((int)timer+1).ToString();
+			yield return null;
+		}
 		GamePlayBegin ();
 	}
 	private void GamePlayBegin()
 	{
 		gameState = GameState.InGame;
 		inGameUI.SetActive (true);
+		countDownUI.SetActive (false);
 		StartCoroutine (InGameCountDown());
 	}
 	IEnumerator InGameCountDown(){
@@ -91,6 +103,7 @@ public class GameMaster : MonoBehaviour {
 		gameMenuUI.SetActive (false);
 		inGameUI.SetActive (false);
 		restartUI.SetActive (true);
+		countDownUI.SetActive (false);
 
 	}
 	public void RemoveEntity(GameObject b)
