@@ -95,6 +95,7 @@ public class GameMaster : MonoBehaviour {
 			Timer.text=((int)timer).ToString();
 			yield return null;
 		}
+		EndGame ();
 	}
 
 	public void EndGame()
@@ -105,6 +106,10 @@ public class GameMaster : MonoBehaviour {
 		restartUI.SetActive (true);
 		countDownUI.SetActive (false);
 
+	}
+	public void Restart()
+	{
+		Application.LoadLevel (Application.loadedLevel);
 	}
 	public void RemoveEntity(GameObject b)
 	{

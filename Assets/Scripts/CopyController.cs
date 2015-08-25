@@ -48,6 +48,7 @@ public class CopyController : MonoBehaviour {
                 else
                 {
                     AudioManager.instance.MonsterDieSound();
+					GameMaster.g.EndGame();
                 }
 
 				GameMaster.g.RemoveEntity (target.gameObject);//kill
